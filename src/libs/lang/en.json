@@ -15,7 +15,9 @@
       "unauthorized": "Unauthorized.",
       "wrong_authorization_format": "Wrong authorization format.",
       "expired_token": "Expired token.",
-      "invalid_token": "Invalid token."
+      "invalid_token": "Invalid token.",
+      "exists": "{{field}} already exists.",
+      "unprocess_entity": "Unprocessable Entity."
   },
   "field": {
       "user": {

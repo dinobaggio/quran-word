@@ -16,7 +16,7 @@ simple starter kit express
 - [x] Unit test
 - [] Toggle feature rabbitmq
 - [] Toggle feature redis
-- [] Sweager API documention
+- [] Sweager API documentation
 
 ## Installation
 

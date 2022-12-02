@@ -18,7 +18,7 @@ export default function validate(validations) {
     })
 
     return res.status(422).json( {
-      message: 'Unprocessable Entity',
+      message: req.t('validator.unprocess_entity'),
       errors: extractedErrors
     })
   }

@@ -14,7 +14,9 @@
       "unauthorized": "Tidak memiliki otoritas.",
       "wrong_authorization_format": "Format otoritas salah.",
       "expired_token": "Token telah kadaluarsa.",
-      "invalid_token": "Token tidak benar."
+      "invalid_token": "Token tidak benar.",
+      "exists": "{{field}} sudah ada.",
+      "unprocess_entity": "Entitas tidak bisa diproses."
   },
   "field": {
       "user": {
