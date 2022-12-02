@@ -1,6 +1,6 @@
 @startuml
 
-'lokalika'
+'starterkit'
 
 hide circle
 skinparam linetype ortho
