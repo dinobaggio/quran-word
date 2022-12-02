@@ -1,0 +1,29 @@
+{
+  "validator": {
+      "string": "{{ field }} tidak sesuai format",
+      "number": "{{ field }} harus dalam bentuk angka",
+      "url": "{{ field }} harus dalam bentuk link URL",
+      "email": "{{ field }} harus dalam format email",
+      "password": "{{ field }} harus terdiri dari angka, huruf kecil, dan huruf besar dan memiliki panjang minimal 8",
+      "not_empty": "{{ field }} tidak boleh kosong",
+      "exist": "{{ field }} sudah ada",
+      "same_value": "{{ field }} harus sama",
+      "max_size": "{{ field }} size terlalu besar",
+      "mimetype": "{{ field }} type file tida diizinkan",
+      "login": "Email atau password salah."
+  },
+  "field": {
+      "user": {
+          "name": "Nama",
+          "email": "Email",
+          "password": "Kata Sandi",
+          "password_confirm": "Konfirmasi Kata Sandi"
+      }
+  },
+  "message": {
+    "success": "Sukses",
+    "success_save": "Sukses menyimpan data.",
+    "success_update": "Sukses merubah data.",
+    "success_delete": "Sukses menghapus data."
+  }
+}

@@ -3,9 +3,24 @@ import express from 'express'
 import path from 'path'
 import cookieParser from 'cookie-parser'
 import logger from 'morgan'
+import i18n from 'i18n'
 import indexRouter from './routes/index'
 
 const app = express();
+
+i18n.configure({
+  defaultLocale: 'en',
+  locales: ['en', 'id'],
+  directory: path.join(__dirname, 'libs/lang'),
+  autoReload: true,
+  updateFiles: false,
+  objectNotation: true,
+  api: {
+    __: 't', // now req.__ becomes req.t
+    __n: 'tn', // and req.__n can be called as req.tn
+  },
+})
+app.use(i18n.init)
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));

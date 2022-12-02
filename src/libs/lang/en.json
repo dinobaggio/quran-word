@@ -1,0 +1,30 @@
+{
+  "validator": {
+      "string": "{{field}} doesn't match format",
+      "number": "{{field}} must be number",
+      "url": "{{field}} must be link URL",
+      "email": "{{field}} must be in email format",
+      "password": "{{field}} must be contain number, lowercase, uppercase and minimum length is 8",
+      "not_empty": "{{ field }} cannot be empty",
+      "exist": "{{ field }} is exist",
+      "same_value": "{{ field }} must be same",
+      "max_size": "{{ field }} size to large",
+      "mimetype": "{{ field }} type file not allowed",
+      "not_found": "{{ field }} not found.",
+      "login": "Incorrect email or password."
+  },
+  "field": {
+      "user": {
+          "name": "Name",
+          "email": "Email",
+          "password": "Password",
+          "password_confirm": "Konfirmasi Kata Sandi"
+      }
+  },
+  "message": {
+    "success": "Success",
+    "success_save": "Successfully save data.",
+    "success_update": "Successfully update data.",
+    "success_delete": "Successfully delete data."
+  }
+}
