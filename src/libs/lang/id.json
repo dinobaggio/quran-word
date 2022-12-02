@@ -10,7 +10,11 @@
       "same_value": "{{ field }} harus sama",
       "max_size": "{{ field }} size terlalu besar",
       "mimetype": "{{ field }} type file tida diizinkan",
-      "login": "Email atau password salah."
+      "login": "Email atau password salah.",
+      "unauthorized": "Tidak memiliki otoritas.",
+      "wrong_authorization_format": "Format otoritas salah.",
+      "expired_token": "Token telah kadaluarsa.",
+      "invalid_token": "Token tidak benar."
   },
   "field": {
       "user": {

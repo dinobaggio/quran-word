@@ -1,5 +1,6 @@
-const { Model } = require('sequelize')
+const { Model, Op } = require('sequelize')
 const { getHash } = require('../libs/passwordHash')
+const sequelizePaginate = require('sequelize-paginate')
 
 module.exports = (sequelize, DataTypes) => {
   /** Users */
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      * @static
      * @memberof Users
      */
-    static associate() {
+    static associate(models) {
       /** define association here */
       // this.addHook('beforeFind', (options) => {
       //   if (!options.attributes) {
@@ -36,9 +37,9 @@ module.exports = (sequelize, DataTypes) => {
         this.setDataValue('password', getHash(value))
       },
     },
-    created_by: DataTypes.BIGINT,
-    deleted_by: DataTypes.BIGINT,
-    updated_by: DataTypes.BIGINT,
+    created_by: DataTypes.INTEGER,
+    deleted_by: DataTypes.INTEGER,
+    updated_by: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Users',
@@ -50,13 +51,28 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: 'deleted_at',
   })
 
-  // eslint-disable-next-line func-names
-  /**
-   * get array of attribute that can be called multiple times
-   * @memberof Users
-   * @function getBasicAttribute
-   * @returns {Array} array of attributes
-   */
+  Users.list = async ({
+    page,
+    paginate,
+    keyword
+  }) => {
+    let condition = {}
+    if (keyword) {
+      condition['name'] = {
+        [Op.like]: `%${keyword}%`
+      }
+    }
+    return Users.paginate({
+      page,
+      paginate,
+      attributes: {
+        exclude: ['password']
+      },
+      where: condition
+    })
+  }
+
+  sequelizePaginate.paginate(Users)
 
   return Users
 }

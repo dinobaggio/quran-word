@@ -1,6 +1,6 @@
 import express from 'express'
 import { login } from '../../controllers/api/authController'
-import { login as loginValidate } from '../../libs/validators/authValidator'
+import { login as loginValidate } from '../../libs/middlewares/validators/authValidator'
 
 const router = express.Router()
 

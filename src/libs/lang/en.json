@@ -11,7 +11,11 @@
       "max_size": "{{ field }} size to large",
       "mimetype": "{{ field }} type file not allowed",
       "not_found": "{{ field }} not found.",
-      "login": "Incorrect email or password."
+      "login": "Incorrect email or password.",
+      "unauthorized": "Unauthorized.",
+      "wrong_authorization_format": "Wrong authorization format.",
+      "expired_token": "Expired token.",
+      "invalid_token": "Invalid token."
   },
   "field": {
       "user": {
