@@ -13,7 +13,7 @@ simple starter kit express
 - [x] Puml format documentation
 - [x] Eslint
 - [] User CRUD and validate user token
-- [] Unit test
+- [x] Unit test
 - [] Toggle feature rabbitmq
 - [] Toggle feature redis
 - [] Sweager API documention

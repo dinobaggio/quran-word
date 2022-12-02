@@ -5,7 +5,7 @@ import app from '../src/app'
 chai.use(chaiHttp)
 chai.should()
 
-describe('Test /auth', function () {
+describe('Test /api/v1/auth', function () {
   it('Test success /auth/login',(done) => {
     chai.request(app)
       .post('/api/v1/auth/login')

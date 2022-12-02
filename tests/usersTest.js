@@ -12,7 +12,7 @@ const CREDENTIALS_LOGIN = {
   password: 'password'
 }
 
-describe('Test /supplier', function() {
+describe('Test /api/v1/users', function() {
   it('List unathorized /', async () => {
     const res = await chai.request(app).get(ENDPOINT)
     res.should.have.status(401)
