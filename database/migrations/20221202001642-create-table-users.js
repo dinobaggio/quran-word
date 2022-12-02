@@ -7,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
       uuid: {
         allowNull: false,
@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       created_by: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         references: {
           model: 'users',
           key: 'id'
@@ -49,7 +49,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       updated_by: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         references: {
           model: 'users',
           key: 'id'
@@ -58,7 +58,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       deleted_by: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         references: {
           model: 'users',
           key: 'id'
