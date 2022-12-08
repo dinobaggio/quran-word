@@ -17,7 +17,8 @@
       "expired_token": "Expired token.",
       "invalid_token": "Invalid token.",
       "exists": "{{field}} already exists.",
-      "unprocess_entity": "Unprocessable Entity."
+      "unprocess_entity": "Unprocessable Entity.",
+      "uuid": "{{field}} is not valid uuid format."
   },
   "field": {
       "user": {
@@ -28,7 +29,7 @@
       }
   },
   "message": {
-    "success": "Success",
+    "success": "Success.",
     "success_save": "Successfully save data.",
     "success_update": "Successfully update data.",
     "success_delete": "Successfully delete data."

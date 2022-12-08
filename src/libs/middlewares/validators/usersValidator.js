@@ -1,4 +1,4 @@
-import { body, check } from 'express-validator'
+import { body, param } from 'express-validator'
 import models from '../../../models'
 import validate from './validateValidator'
 
@@ -29,4 +29,12 @@ export const create = () => validate([
     .withMessage((_, { req }) => req.t('validator.not_empty', { field: req.t('field.user.password') }))
     .trim()
     .escape(),
+])
+
+export const update = () => validate([
+  body('name')
+    .notEmpty()
+    .withMessage((_, { req }) => req.t('validator.not_empty', { field: req.t('field.user.name') }))
+    .trim()
+    .escape()
 ])

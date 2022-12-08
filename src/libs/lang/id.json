@@ -16,7 +16,8 @@
       "expired_token": "Token telah kadaluarsa.",
       "invalid_token": "Token tidak benar.",
       "exists": "{{field}} sudah ada.",
-      "unprocess_entity": "Entitas tidak bisa diproses."
+      "unprocess_entity": "Entitas tidak bisa diproses.",
+      "uuid": "{{field}} bukan dalam format yang valid."
   },
   "field": {
       "user": {

@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import models from '../../models'
+import models from '../../../models'
 
 export default async function([value, field], { req, res, model }) {
   let ormModel = null
@@ -14,4 +14,5 @@ export default async function([value, field], { req, res, model }) {
     })
     return { isValid: false }
   }
+  return { isValid: true, data }
 }

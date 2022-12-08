@@ -12,7 +12,7 @@ simple starter kit express
 - [x] JWT token
 - [x] Puml format documentation
 - [x] Eslint
-- [] User CRUD and validate user token
+- [x] User CRUD and validate user token
 - [x] Unit test
 - [] Toggle feature rabbitmq
 - [] Toggle feature redis
