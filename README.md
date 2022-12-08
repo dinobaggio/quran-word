@@ -14,9 +14,9 @@ simple starter kit express
 - [x] Eslint
 - [x] User CRUD and validate user token
 - [x] Unit test
-- [] Toggle feature rabbitmq
-- [] Toggle feature redis
-- [] Sweager API documentation
+- [ ] Toggle feature rabbitmq
+- [ ] Toggle feature redis
+- [ ] Sweager API documentation
 
 ## Installation
 
