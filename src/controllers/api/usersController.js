@@ -1,8 +1,11 @@
-import listUsers from '../../handler/users/list'
-import createUsers from '../../handler/users/create'
-import updateUsers from '../../handler/users/update'
-import deleteUsers from '../../handler/users/delete'
-import detailUsers from '../../handler/users/detail'
+import _ from 'lodash'
+import {
+  list as listUsers,
+  detail as detailUsers,
+  create as createUsers,
+  update as updateUsers,
+  destroy as deleteUsers
+} from '../../handler/users/crud'
 import validateNotfound from '../../libs/middlewares/validators/validateNotfound'
 import models from '../../models'
 
@@ -16,7 +19,18 @@ export async function list(req, res, next) {
       keyword: req.query?.keyword || ''
     }
 
-    await listUsers(params, req, res)
+    const { docs, total, pages } = await listUsers(params)
+
+    return res.status(200).json({
+      message: req.t('message.success'),
+      meta: {
+        total,
+        pages,
+        page: params.page,
+        paginate: params.paginate,
+      },
+      data: docs
+    })
   } catch (err) {
     return next(err)
   }
@@ -30,7 +44,13 @@ export async function create(req, res, next) {
       email,
       password
     }
-    await createUsers(data, req, res)
+
+    const user = await createUsers(data)
+
+    return res.status(201).json({
+      message: req.t('message.success_save'),
+      data: _.omit(user?.dataValues, ['password'])
+    })
   } catch (err) {
     return next(err)
   }
@@ -39,14 +59,19 @@ export async function create(req, res, next) {
 export async function detail(req, res, next) {
   try {
     const { uuid } = req.params
-    const { isValid } = await validateNotfound([uuid, 'uuid'], {
-      model: Users,
-      req,
-      res
-    })
+    const { isValid } = await validateNotfound([
+      uuid, 
+      'uuid',
+      Users
+    ], req,res)
     if (!isValid) return
 
-    await detailUsers(uuid, req, res)
+    const user = await detailUsers(uuid)
+
+    return res.status(200).json({
+      message: req.t('message.success'),
+      data: _.omit(user?.dataValues, ['password'])
+    })
   } catch (err) {
     return next(err)
   }
@@ -55,17 +80,22 @@ export async function detail(req, res, next) {
 export async function update(req, res, next) {
   try {
     const { uuid } = req.params
-    const { isValid } = await validateNotfound([uuid, 'uuid'], {
-      model: Users,
-      req,
-      res
-    })
+    const { isValid } = await validateNotfound([
+      uuid, 
+      'uuid',
+      Users
+    ], req,res)
     if (!isValid) return
 
     const dataUpdate = {
       name: req.body.name
     }
-    await updateUsers(uuid, dataUpdate, req, res)
+    const user = await updateUsers(uuid, dataUpdate)
+
+    return res.status(200).json({
+      message: req.t('message.success_update'),
+      data: _.omit(user?.dataValues, ['password'])
+    })
   } catch (err) {
     return next(err)
   }
@@ -74,14 +104,17 @@ export async function update(req, res, next) {
 export async function destroy(req, res, next) {
   try {
     const { uuid } = req.params
-    const { isValid } = await validateNotfound([uuid, 'uuid'], {
-      model: Users,
-      req,
-      res
-    })
+    const { isValid } = await validateNotfound([
+      uuid, 
+      'uuid',
+      Users
+    ], req,res)
     if (!isValid) return
     
-    await deleteUsers(uuid, req, res)
+    await deleteUsers(uuid)
+    return res.status(200).json({
+      message: req.t('message.success_delete')
+    })
   } catch (err) {
     return next(err)
   }

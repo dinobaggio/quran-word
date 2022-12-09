@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import models from '../../../models'
 
-export default async function([value, field], { req, res, model }) {
+export default async function([value, field, model], req, res) {
   let ormModel = null
   if (typeof model === 'string') ormModel = models[model]
   else ormModel = model

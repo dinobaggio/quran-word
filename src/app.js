@@ -11,7 +11,7 @@ const app = express();
 i18n.configure({
   defaultLocale: 'en',
   locales: ['en', 'id'],
-  directory: path.join(__dirname, 'libs/lang'),
+  directory: path.join(__dirname, '../lang'),
   autoReload: true,
   updateFiles: false,
   objectNotation: true,

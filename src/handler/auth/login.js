@@ -25,10 +25,11 @@ const validateEmailPassword = async ({ email, password }, req, res) => {
 
 export default async function (data, req, res) {
   const { data: userData, isValid } = await validateEmailPassword(data, req, res)
-  if (!isValid) return
+  if (!isValid) return null
   const payload = _.pick(userData, ['uuid', 'name', 'email', 'created_at', 'updated_at'])
   const token = jwt.sign(payload, process.env.DB_PASSWORD, {
     expiresIn: '7d'
   })
-  return res.status(200).json({ message: req.t('message.success'), token })
+  
+  return token
 }

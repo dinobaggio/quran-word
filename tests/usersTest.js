@@ -92,6 +92,12 @@ describe('[Test user] /api/v1/users', function() {
     res.body.message.should.equal('Unprocessable Entity.')
     res.body.should.have.own.property('errors')
   })
+  it('[Detail user] unathorized /', async () => {
+    const res = await chai.request(app).get(`${ENDPOINT}/${data.uuid}`)
+    res.should.have.status(401)
+    res.body.should.have.own.property('message')
+    res.body.message.should.equal('Unauthorized.')
+  })
   it('[Detail user] success /:uuid', async () => {
     const { body: login } = await chai.request(app).post(LOGIN_ENDPOINT)
       .send(CREDENTIALS_LOGIN)
@@ -110,6 +116,12 @@ describe('[Test user] /api/v1/users', function() {
     res.should.have.status(404)
     res.body.should.have.own.property('message')
     res.body.message.should.not.equal('Success.')
+  })
+  it('[Update user] unathorized /', async () => {
+    const res = await chai.request(app).put(`${ENDPOINT}/${data.uuid}`)
+    res.should.have.status(401)
+    res.body.should.have.own.property('message')
+    res.body.message.should.equal('Unauthorized.')
   })
   it('[Update user] no empty /:uuid', async () => {
     const { body: login } = await chai.request(app).post(LOGIN_ENDPOINT)
@@ -145,6 +157,12 @@ describe('[Test user] /api/v1/users', function() {
       res.body.should.have.own.property('data')
       res.body.data.should.have.own.property('name')
       res.body.data.name.should.equal(updateData.name)
+  })
+  it('[Delete user] unathorized /', async () => {
+    const res = await chai.request(app).delete(`${ENDPOINT}/${data.uuid}`)
+    res.should.have.status(401)
+    res.body.should.have.own.property('message')
+    res.body.message.should.equal('Unauthorized.')
   })
   it('[Delete user] user not found /:uuid', async () => {
     const randUUID = crypto.randomUUID()
