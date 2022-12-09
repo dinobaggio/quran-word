@@ -13,11 +13,7 @@ export async function list({ page, paginate, keyword }) {
 }
 
 export async function detail(uuid) {
-  const user = await Users.findOne({
-    where: {
-      uuid
-    }
-  })
+  const user = await Users.detail(uuid)
   return user  
 }
 export async function create(data) {
@@ -26,25 +22,12 @@ export async function create(data) {
 }
 
 export async function update(uuid, data) {
-  await Users.update(data, {
-    where: {
-      uuid
-    },
-    returning: true
-  })
-  const user = await Users.findOne({
-    where: { uuid }
-  })
-
+  const user = await Users.updateData(uuid, data)
   return user
 }
 
 export async function destroy(uuid) {
-  await Users.destroy({
-    where: {
-      uuid
-    }
-  })
+  await Users.delete(uuid)
 }
 
 export default {

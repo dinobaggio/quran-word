@@ -51,24 +51,55 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: 'deleted_at',
   })
 
-  Users.list = async ({
+  Users.list = async function({
     page,
     paginate,
     keyword
-  }) => {
+  }) {
     let condition = {}
     if (keyword) {
       condition['name'] = {
         [Op.like]: `%${keyword}%`
       }
     }
-    return Users.paginate({
+    return this.paginate({
       page,
       paginate,
       attributes: {
         exclude: ['password']
       },
       where: condition
+    })
+  }
+
+  Users.detail = async function (uuid) {
+    const user = await this.findOne({
+      where: {
+        uuid
+      }
+    })
+    return user  
+  }
+
+  Users.updateData = async function (uuid, data) {
+    await this.update(data, {
+      where: {
+        uuid
+      },
+      returning: true
+    })
+    const user = await this.findOne({
+      where: { uuid }
+    })
+  
+    return user
+  }
+
+  Users.delete = async function (uuid) {
+    await this.destroy({
+      where: {
+        uuid
+      }
     })
   }
 

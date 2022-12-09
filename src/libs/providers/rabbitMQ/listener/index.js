@@ -1,5 +1,5 @@
-import usersCreate from './usersCreate'
+import usersListener from "./usersListener"
 
 export default {
-  usersCreate
+  usersListener
 }

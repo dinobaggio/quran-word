@@ -9,7 +9,9 @@
     "build": "rm -R ./dist;babel src --out-dir dist",
     "serve": "node ./dist/bin/server.js",
     "test": "mocha tests --require @babel/register --sort --exit",
-    "test:file": "mocha --require @babel/register --sort --exit"
+    "test:file": "mocha --require @babel/register --sort --exit",
+    "dev:listener": "babel-node ./src/bin/amqpListener.js",
+    "start:listener": "node ./dist/bin/amqpListener.js"
   },
   "nodemonConfig": {
     "exec": "babel-node ./src/bin/server.js",

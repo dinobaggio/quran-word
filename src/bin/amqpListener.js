@@ -21,10 +21,16 @@ initAmqp()
   .then(async (conn) => {
     process.once('SIGINT', function() { conn.close(); });
     const ch = await conn.createChannel()
+
     dirListeners.forEach(item => {
       let name = String(item).replace('.js', '')
-      listeners[name](ch)
+      const objListeners = listeners[name]
+      const keys = Object.keys(objListeners)
+      keys.forEach(key => {
+        objListeners[key](ch)
+      })
     })
+    
     console.log(' [*] Waiting for messages. To exit press CTRL+C');
   })
   .catch(console.warn)

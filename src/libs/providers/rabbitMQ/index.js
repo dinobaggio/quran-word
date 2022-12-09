@@ -40,9 +40,8 @@ export async function consumeMessageAmqp(queue, ch, cb = () => {}) {
   await ch.assertQueue(queue)
   await ch.consume(queue, async function(msg) {
     const message = msg.content.toString()
-    const data = JSON.parse(message)
-    console.log("[x] Received '%s'", message)
-    cb(data)
+    console.log(" [x] Received '%s'", message)
+    cb(message)
   }, { noAck: true })
 }
 
