@@ -1,0 +1,3 @@
+rm -R ./dist
+babel src --out-dir dist
+cp -R ./src/libs/lang ./dist/libs/lang

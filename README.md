@@ -68,11 +68,12 @@ simple starter kit express
 │   │   │   │   └─ validateValidator.js
 │   │   │   └── authMiddleware.js
 │   │   ├── providers
-│   │   │   └── rabbitMQ
-│   │   │       ├── listener
-│   │   │       │   ├─ index.js
-│   │   │       │   └─ usersListener.js
-│   │   │       └── index.js
+│   │   │   ├── rabbitMQ
+│   │   │   │   ├── listener
+│   │   │   │   │   ├─ index.js
+│   │   │   │   │   └─ usersListener.js
+│   │   │   │   └── index.js
+│   │   │   └── redis.js
 │   │   ├── constant.js
 │   │   └── passwordHash.js
 │   ├── models

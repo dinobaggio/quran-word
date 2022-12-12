@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./dist/bin/server.js",
     "dev": "nodemon",
-    "build": "rm -R ./dist;babel src --out-dir dist;cp -R ./src/libs/lang ./dist/libs/lang",
+    "build": "sh build",
     "serve": "node ./dist/bin/server.js",
     "test": "mocha tests --require @babel/register --sort --exit",
     "test:file": "mocha --require @babel/register --sort --exit",
@@ -53,6 +53,7 @@
     "lodash": "^4.17.21",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
+    "redis": "^4.5.1",
     "sequelize": "^6.26.0",
     "sequelize-paginate": "^1.1.6",
     "validator": "^13.7.0"
