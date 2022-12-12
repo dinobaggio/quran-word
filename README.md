@@ -15,7 +15,7 @@ simple starter kit express
 - [x] User CRUD and validate user token
 - [x] Unit test
 - [x] Toggle feature rabbitmq
-- [ ] Toggle feature redis
+- [x] Toggle feature redis
 - [ ] Sweager API documentation
 - [ ] Error Logs
 
