@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./dist/bin/server.js",
     "dev": "nodemon",
-    "build": "rm -R ./dist;babel src --out-dir dist",
+    "build": "rm -R ./dist;babel src --out-dir dist;cp -R ./src/libs/lang ./dist/libs/lang",
     "serve": "node ./dist/bin/server.js",
     "test": "mocha tests --require @babel/register --sort --exit",
     "test:file": "mocha --require @babel/register --sort --exit",

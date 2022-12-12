@@ -29,3 +29,77 @@ simple starter kit express
 
 - email: `admin@admin.com`
 - password: `password`
+
+## Structure folder
+
+```bash
+├── database
+│   ├── config
+│   ├── migrations
+│   └── seeders
+├── documents
+│   └── database.puml
+├── public
+│   └── style.css
+├── src
+│   ├── bin
+│   │   ├── amqpListener.js #
+│   │   └── server.js #
+│   ├── controllers
+│   │   ├── amqp
+│   │   │   └── usersController.js # for listener rabbitmq
+│   │   ├── api
+│   │   │   ├── authController.js
+│   │   │   └── usersController.js
+│   ├── handler
+│   │   ├── auth
+│   │   │   └── login.js
+│   │   ├── users
+│   │   │   └── crud.js
+│   ├── libs # libs or library
+│   │   ├── lang
+│   │   │   ├── en.json
+│   │   │   └── id.json
+│   │   ├── middlewares
+│   │   │   ├── validators
+│   │   │   │   ├─ authValidator.js
+│   │   │   │   ├─ usersValidator.js
+│   │   │   │   ├─ validateNotFound.js
+│   │   │   │   └─ validateValidator.js
+│   │   │   └── authMiddleware.js
+│   │   ├── providers
+│   │   │   └── rabbitMQ
+│   │   │       ├── listener
+│   │   │       │   ├─ index.js
+│   │   │       │   └─ usersListener.js
+│   │   │       └── index.js
+│   │   ├── constant.js
+│   │   └── passwordHash.js
+│   ├── models
+│   │   ├── index.js
+│   │   └── users.js
+│   ├── routes
+│   │   ├── amqp
+│   │   │   ├── index.js
+│   │   │   └── usersRouter.js
+│   │   ├── api
+│   │   │   ├── authRouter.js
+│   │   │   ├── index.js
+│   │   │   └── usersRouter.js
+│   │   └── index.js
+│   └── app.js
+├── tests
+│   ├── authTest.js
+│   ├── rabbitMQTest.js
+│   ├── usersAmqpTest.js
+│   └── usersTest.js
+├── views
+│   ├── error.hbs
+│   └── index.hbs
+├── .env-example
+├── .gitignore
+├── .sequelizerc
+├── package-lock.json
+├── package.json
+└── README.md
+```
