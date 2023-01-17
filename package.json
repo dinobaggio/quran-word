@@ -38,7 +38,7 @@
     ]
   },
   "dependencies": {
-    "amqplib": "^0.10.3",
+    "axios": "^1.2.2",
     "bcrypt": "^5.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -52,10 +52,6 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "morgan": "~1.9.1",
-    "mysql2": "^2.3.3",
-    "redis": "^4.5.1",
-    "sequelize": "^6.26.0",
-    "sequelize-paginate": "^1.1.6",
     "validator": "^13.7.0"
   },
   "devDependencies": {
