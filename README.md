@@ -1,5 +1,7 @@
 # Quran Word
 
+- [x] Sync quran by surah number
+- [x] Top word quran by surah number
 
 ## Top Word
 
